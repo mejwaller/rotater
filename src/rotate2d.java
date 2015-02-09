@@ -48,15 +48,8 @@ public class rotate2d extends Canvas{
     }
     
     public void drawLine(Graphics g, int xstart, int ystart, int xend, int yend) {
-        System.out.println("getHeight is " + getHeight());
-        System.out.println("xstart + 400 is " + (xstart + 400));
-        System.out.println("getheight - 400 + ystart is " + (getHeight() - 400 + ystart));
-        
-        System.out.println("xend + 400 is " + (xstart+400));
-        System.out.println("getheight - 400 + yend is " + (getHeight() - 400 + yend));
         g.drawLine(xstart + 400, getHeight()-400+ystart, 
                         xend + 400, getHeight()-400+yend);
-        //g.drawLine(xstart, getHeight()-ystart, xend, getHeight()-yend);
         
     }
     
