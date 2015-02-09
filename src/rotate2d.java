@@ -33,6 +33,7 @@ public class rotate2d extends Canvas{
     }
     
     public void update(Graphics g) {
+        super.update(g);
        paint(g);        
     }
     

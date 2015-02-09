@@ -1,7 +1,11 @@
 import java.awt.Frame;
 import java.lang.Math;
+import java.awt.Graphics;
 
 public class mainpkg {
+    
+    private static double[] newx = new double[4];
+    private static double[] newy = new double[4];
 
  public static void main(String[] args)
     {
@@ -39,20 +43,27 @@ public class mainpkg {
         
         while(true) {
             double angle = i* 2.0*Math.PI;
+            System.out.println("Angle is now " + angle);
             rotate(x,y,angle);
+            r2.setCoords(newx,newy);
+            Graphics f = r2.getGraphics();
+            //Graphics g = aFrame.getGraphics();
+            //r2.paint(f);
+            r2.update(f);
+            i+=0.001;
             
-        }
-        
-       
-        
+        } 
         
     }
  
     public static void rotate(double[] x, double[] y, double angle) {
-        double[] newx = new double[4];
-        double[] newy = new double[4];
+        //double[] newx = new double[4];
+        //double[] newy = new double[4];
         
-        
-      
+        //x0 is top right quadrtarnt (+y, -x)
+        for(int i =0; i<4; i++) {
+            newx[i] = x[i]*Math.cos(angle) - y[i]*Math.sin(angle);
+            newy[i] = x[i]*Math.sin(angle) + y[i] *Math.cos(angle);
+        }
     }
 }
