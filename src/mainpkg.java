@@ -46,11 +46,16 @@ public class mainpkg {
             System.out.println("Angle is now " + angle);
             rotate(x,y,angle);
             r2.setCoords(newx,newy);
+            try {
+                Thread.sleep(100);                 //1000 milliseconds is one second.
+            } catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
             Graphics f = r2.getGraphics();
             //Graphics g = aFrame.getGraphics();
             //r2.paint(f);
             r2.update(f);
-            i+=0.001;
+            i+=0.01;
             
         } 
         
