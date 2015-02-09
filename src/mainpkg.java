@@ -9,7 +9,34 @@ public class mainpkg {
 
  public static void main(String[] args)
     {
-        int height = 822;
+	 
+	 System.out.println("args length is " + args.length);
+	 for(String arg:args) {
+		 System.out.println(arg);
+	 }
+	 
+	 if(args[0].equals("2")) {
+		 
+		 rot2d();
+	 }
+	 else if(args[0].equals("3")) {
+		 rot3d();
+	 }
+	 else System.out.println("args[0] is " + args[0]);
+        
+        
+    }
+ 
+    public static void rotate2d(double[] x, double[] y, double angle) {
+        for(int i =0; i<4; i++) {
+            newx[i] = x[i]*Math.cos(angle) - y[i]*Math.sin(angle);
+            newy[i] = x[i]*Math.sin(angle) + y[i] *Math.cos(angle);
+        }
+    }
+    
+    public static void rot2d() {
+    	
+    	int height = 822;
         int width = 800;
         double[] x = new double[4];
         double[] y = new double[4];
@@ -31,7 +58,7 @@ public class mainpkg {
         
         while(true) {
             double angle = i* 2.0*Math.PI;
-            rotate(x,y,angle);
+            rotate2d(x,y,angle);
             r2.setCoords(newx,newy);
             try {
                 Thread.sleep(100);                 //1000 milliseconds is one second.
@@ -43,13 +70,9 @@ public class mainpkg {
             i+=0.01;
             
         } 
-        
     }
- 
-    public static void rotate(double[] x, double[] y, double angle) {
-        for(int i =0; i<4; i++) {
-            newx[i] = x[i]*Math.cos(angle) - y[i]*Math.sin(angle);
-            newy[i] = x[i]*Math.sin(angle) + y[i] *Math.cos(angle);
-        }
+    
+    public static void rot3d() {
+    	
     }
 }
