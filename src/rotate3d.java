@@ -7,9 +7,6 @@ public class rotate3d extends Canvas{
     //y is vertical (against convention..)
     //z come out of screen
     //x is horizontal
-    private double axisxrot = Math.PI/8.0;
-    private double axisyrot = Math.PI/8.0;
-    private double axiszrot = 0.0;
     private int height;
     private int width;
     private int depth;
@@ -32,16 +29,7 @@ public class rotate3d extends Canvas{
         Z[5] = Z[5] = Z[6] = Z[7] = -depth/4;
         xtrans=width/8;;
         ytrans=width/8;
-        
-        
-        //to show z axis, foirst rotate pi/8 towards you round xaxis (i.e. -pi/8) (so z and y change)
-        //THEN around y axis in a clockwise direction, i.e. also -pi/8, so x and z change
-/*        double zaxisendfront = (depth/2.0)*Math.cos(-Math.PI/8.0) - (height/2.0)*Math.sin(-Math.PI/8.0);
-        double zaxisendback = (-depth/2.0)*Math.cos(-Math.PI/8.0) - (height/2.0)*Math.sin(-Math.PI/8.0);
-        double yaxisendfront = (depth/2.0)*Math.sin(-Math.PI/8.0) + (height/2.0)*Math.cos(-Math.PI/8.0);
-        double yaxisendback =  (depth/2.0)*Math.sin(-Math.PI/8.0) + (-height/2.0)*Math.cos(-Math.PI/8.0);
-        */
-                        
+                                
     }
     
     public void paint(Graphics g) {

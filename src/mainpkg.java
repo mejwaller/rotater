@@ -8,6 +8,8 @@ public class mainpkg {
     private static double[] newy = new double[4];
     private static double[] newx3 = new double[8];
     private static double[] newy3 = new double[8];
+    private static double[] newx4 = new double[16];
+    private static double[] newy4 = new double[16];
     
 
  public static void main(String[] args)
@@ -25,6 +27,9 @@ public class mainpkg {
 	 else if(args[0].equals("3")) {
 		 rot3d();
 	 }
+	 else if(args[0].equals("4")) {
+	     rot4d();
+	 }
 	 else System.out.println("args[0] is " + args[0]);
         
         
@@ -34,6 +39,20 @@ public class mainpkg {
         for(int i =0; i<4; i++) {
             newx[i] = x[i]*Math.cos(angle) - y[i]*Math.sin(angle);
             newy[i] = x[i]*Math.sin(angle) + y[i] *Math.cos(angle);
+        }
+    }
+    
+    public static void rotate3d(double[] x, double[] y, double angle) {
+        for(int i=0; i<8; i++) {
+            newx3[i] = x[i]*Math.cos(angle) - y[i]*Math.sin(angle);
+            newy3[i] = x[i]*Math.sin(angle) + y[i] *Math.cos(angle);
+        }
+    }
+    
+    public static void rotate4d(double[] x, double[] y, double angle) {
+        for(int i=0; i<16; i++) {
+            newx4[i] = x[i]*Math.cos(angle) - y[i]*Math.sin(angle);
+            newy4[i] = x[i]*Math.sin(angle) + y[i] *Math.cos(angle);           
         }
     }
     
@@ -115,10 +134,45 @@ public class mainpkg {
     	
     }
     
-    public static void rotate3d(double[] x, double[] y, double angle) {
-        for(int i =0; i<8; i++) {
-            newx3[i] = x[i]*Math.cos(angle) - y[i]*Math.sin(angle);
-            newy3[i] = x[i]*Math.sin(angle) + y[i] *Math.cos(angle);
-        }
+    public static void rot4d() {
+        int height = 822;
+        int width = 800;
+        int depth = 800;
+        int fourth = 800;
+        double[] x = new double[16];
+        double[] y = new double[16];
+        double[] z = new double[16];
+        double[] w = new double[16];
+        
+        rotate4d r4 = new rotate4d(width, height, depth, fourth);
+        Frame aFrame = new Frame(); 
+        aFrame.setSize(height, width); 
+        aFrame.add(r4); 
+        aFrame.setVisible(true);
+        
+        x[0] = x[3] = x[4] = x[7] = x[8] = x[11] = x[12] = x[15] = -width/6.0;
+        x[1] = x[2] = x[5] = x[6] = x[9] = x[10] = x[13] = x[14] = width/6.0;
+        y[0] = y[1] = y[4] = y[5] = y[8] = y[9] = y[12] = y[13] = height/6.0;
+        y[2] = y[3] = y[6] = y[7] =y[10] = y[11] = y[14] = y[15] = -height/6.0;
+        
+        r4.setCoords(x,y);
+        
+        double i = 0;
+        
+        while(true) {
+            double angle = i* 2.0*Math.PI;
+            rotate4d(x,y,angle);
+            r4.setCoords(newx4,newy4);
+            try {
+                Thread.sleep(100);                 //1000 milliseconds is one second.
+            } catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+            Graphics f = r4.getGraphics();
+            r4.update(f);
+            i+=0.01;
+            
+        } 
+        
     }
 }
