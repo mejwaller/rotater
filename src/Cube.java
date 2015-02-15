@@ -1,8 +1,7 @@
-import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Color;
 
-public class rotate3d extends Canvas{
+public class Cube extends Polytope{
     
     //y is vertical (against convention..)
     //z come out of screen
@@ -16,7 +15,7 @@ public class rotate3d extends Canvas{
     private int xtrans;//hack to translate points along diagional z axis
     private int ytrans;
     
-    rotate3d(int width, int height, int depth) {
+    Cube(int width, int height, int depth) {
         this.width=width;
         this.height=height;
         this.depth=depth;
@@ -38,7 +37,7 @@ public class rotate3d extends Canvas{
         drawLine(g,-(width/2),0,width/2,0);
         drawLine(g,height/2, height/2, -height/2, -height/2);
         g.setColor(Color.red);
-        drawCube(g);               
+        draw(g);               
     }
     
     public void update(Graphics g) {
@@ -63,7 +62,7 @@ public class rotate3d extends Canvas{
         
     }
     
-    public void drawCube(Graphics g) {
+    public void draw(Graphics g) {
         drawLine(g, X[0]+xtrans, Y[0]+ytrans, X[1]+xtrans, Y[1]+ytrans);
         drawLine(g, X[1]+xtrans, Y[1]+ytrans, X[2]+xtrans, Y[2]+ytrans);
         drawLine(g, X[2]+xtrans, Y[2]+ytrans, X[3]+xtrans, Y[3]+ytrans);

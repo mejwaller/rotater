@@ -1,15 +1,14 @@
-import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class rotate2d extends Canvas{
+public class Square extends Polytope{
     
     private int height;
     private int width;
     private int[] X = new int[4];
     private int[] Y = new int[4];
     
-    rotate2d(int width, int height) {
+    Square(int width, int height) {
         this.width=width;
         this.height=height;
         setBackground(Color.white);
@@ -24,7 +23,7 @@ public class rotate2d extends Canvas{
         drawLine(g,0,-(height/2),0,(height/2));
         drawLine(g,-(width/2),0,width/2,0);
         g.setColor(Color.red);
-        drawSquare(g);
+        draw(g);
         //drawLine(g, 10, 10, 800, 10);
         //drawLine(g, 10, 10, 10, 800);
         //g.setColor(Color.red);
@@ -53,7 +52,7 @@ public class rotate2d extends Canvas{
         
     }
     
-    public void drawSquare(Graphics g) {
+    public void draw(Graphics g) {
         drawLine(g, X[0], Y[0], X[1], Y[1]);
         drawLine(g, X[1], Y[1], X[2], Y[2]);
         drawLine(g, X[2], Y[2], X[3], Y[3]);

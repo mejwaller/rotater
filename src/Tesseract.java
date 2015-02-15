@@ -1,8 +1,7 @@
-import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class rotate4d extends Canvas{
+public class Tesseract extends Polytope{
     
     //y is vertical (against convention..)
     //z come out of screen
@@ -20,7 +19,7 @@ public class rotate4d extends Canvas{
     private int xwtrans;
     private int ywtrans;
     
-    rotate4d(int width, int height, int depth, int fourth) {
+    Tesseract(int width, int height, int depth, int fourth) {
         this.width=width;
         this.height=height;
         this.depth=depth;
@@ -46,7 +45,7 @@ public class rotate4d extends Canvas{
         drawLine(g,height/2, height/2, -height/2, -height/2);
         drawLine(g,height/2, -height/2, -height/2, height/2);
         g.setColor(Color.red);
-        drawTesseract(g);               
+        draw(g);               
     }
     
     public void update(Graphics g) {
@@ -71,7 +70,7 @@ public class rotate4d extends Canvas{
         
     }
     
-    public void drawTesseract(Graphics g) {
+    public void draw(Graphics g) {
         
         //cube at 'front' w-axis
         drawLine(g, X[0]+xztrans-xwtrans, Y[0]+yztrans+ywtrans, X[1]+xztrans-xwtrans, Y[1]+yztrans+ywtrans);

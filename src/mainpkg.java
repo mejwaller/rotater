@@ -63,7 +63,7 @@ public class mainpkg {
         double[] x = new double[4];
         double[] y = new double[4];
         
-        rotate2d r2 = new rotate2d(width, height);
+        Square r2 = new Square(width, height);
         Frame aFrame = new Frame(); 
         aFrame.setSize(height, width); //5 pixels either side for frame, 5 below for frame + 25 above foe window bar
         aFrame.add(r2); 
@@ -102,7 +102,7 @@ public class mainpkg {
         double[] y = new double[8];
         double[] z = new double[8];
         
-        rotate3d r3 = new rotate3d(width, height, depth);
+        Cube r3 = new Cube(width, height, depth);
         Frame aFrame = new Frame(); 
         aFrame.setSize(height, width); //5 pixels either side for frame, 5 below for frame + 25 above foe window bar
         aFrame.add(r3); 
@@ -144,7 +144,7 @@ public class mainpkg {
         double[] z = new double[16];
         double[] w = new double[16];
         
-        rotate4d r4 = new rotate4d(width, height, depth, fourth);
+        Tesseract r4 = new Tesseract(width, height, depth, fourth);
         Frame aFrame = new Frame(); 
         aFrame.setSize(height, width); 
         aFrame.add(r4); 
